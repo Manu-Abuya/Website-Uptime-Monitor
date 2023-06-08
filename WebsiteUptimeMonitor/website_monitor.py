@@ -25,4 +25,14 @@ def send_email(subject, body):
         smtp,login(EMAIL_ADDRESS, EMAIL_PASSWORD)
         message = f'Subject: {subject}\n\n{body}'
         smtp.sendmail(EMAIL_ADDRESS, RECIPIENT_ADDRESS, message)
-        
+   
+while True:
+    for website in websites:
+        try:
+            response = requests.get(website['url'])
+            if response.status_code != 200:
+                send_email(f'{website["name"]} is down!', f'{website["name"]} is not responding. Status code: {response.status_code}')
+        except requests.exceptions.RequestException:
+            send_email(f'{website["name"]} is down!', f'{website["name"]} is not responding. Connection error.') 
+            
+    time.sleep(60) # Check every minute       
