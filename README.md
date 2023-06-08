@@ -48,5 +48,29 @@ This is a simple Python script that periodically checks the availability of webs
 
 6. Run the script:
 
+    ```shell
+    python website_monitor.py
+    ```
+    
+ 
+The script will start monitoring the websites at the specified interval (default: 1 minute). You will receive email notifications whenever a website goes down.
+
+## Customization
+
+- To monitor additional websites, add them to the `websites` list in `website_monitor.py` with the desired name and URL.
+- You can adjust the monitoring interval by changing the value in the `time.sleep()` function (in seconds).
+- Modify the email notification messages in the `send_email()` function to suit your preferences.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## Acknowledgments
+
+This project was inspired by the need for a simple and lightweight website uptime monitoring solution. It utilizes the UptimeRobot API for website status checks and Gmail's SMTP server for email notifications.
+
+Feel free to contribute, open issues, or provide feedback to help improve this project.
+
+
 
 
