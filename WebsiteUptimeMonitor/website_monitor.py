@@ -19,3 +19,10 @@ EMAIL_ADDRESS = 'YOUR_EMAIL_ADDRESS'
 EMAIL_PASSWORD = 'YOUR_EMAIL_PASSWORD'
 RECIPIENT_ADDRESS = 'RECIPIENT_EMAIL_ADDRESS'
 
+def send_email(subject, body):
+    with smtplib.SMTP(SMTP_SERVER, SMTP_PORT) as smtp:
+        smtp.starttls()
+        smtp,login(EMAIL_ADDRESS, EMAIL_PASSWORD)
+        message = f'Subject: {subject}\n\n{body}'
+        smtp.sendmail(EMAIL_ADDRESS, RECIPIENT_ADDRESS, message)
+        
